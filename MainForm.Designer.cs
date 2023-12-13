@@ -45,6 +45,16 @@
             label2 = new Label();
             label1 = new Label();
             groupBoxInvite = new GroupBox();
+            comboBoxCountry = new ComboBox();
+            textBoxPostCode = new TextBox();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            textBoxCity = new TextBox();
+            textBoxStreet = new TextBox();
+            label7 = new Label();
+            label12 = new Label();
+            label13 = new Label();
             buttonAdd = new Button();
             textBoxLastName = new TextBox();
             textBoxFirstName = new TextBox();
@@ -64,16 +74,6 @@
             buttonDelete = new Button();
             labelAddress = new Label();
             buttonChange = new Button();
-            textBoxCity = new TextBox();
-            textBoxStreet = new TextBox();
-            label7 = new Label();
-            label12 = new Label();
-            label13 = new Label();
-            textBoxPostCode = new TextBox();
-            label14 = new Label();
-            label15 = new Label();
-            label16 = new Label();
-            comboBoxCountry = new ComboBox();
             groupBoxEco = new GroupBox();
             groupBoxNewParty.SuspendLayout();
             groupBoxInvite.SuspendLayout();
@@ -178,6 +178,87 @@
             groupBoxInvite.TabStop = false;
             groupBoxInvite.Text = "Inivte Guest";
             // 
+            // comboBoxCountry
+            // 
+            comboBoxCountry.FormattingEnabled = true;
+            comboBoxCountry.Location = new Point(172, 187);
+            comboBoxCountry.Name = "comboBoxCountry";
+            comboBoxCountry.Size = new Size(100, 23);
+            comboBoxCountry.TabIndex = 17;
+            // 
+            // textBoxPostCode
+            // 
+            textBoxPostCode.Location = new Point(172, 155);
+            textBoxPostCode.Name = "textBoxPostCode";
+            textBoxPostCode.Size = new Size(100, 23);
+            textBoxPostCode.TabIndex = 15;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(38, 221);
+            label14.Name = "label14";
+            label14.Size = new Size(0, 15);
+            label14.TabIndex = 14;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(38, 187);
+            label15.Name = "label15";
+            label15.Size = new Size(50, 15);
+            label15.TabIndex = 13;
+            label15.Text = "Country";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(38, 158);
+            label16.Name = "label16";
+            label16.Size = new Size(61, 15);
+            label16.TabIndex = 12;
+            label16.Text = "Post Code";
+            // 
+            // textBoxCity
+            // 
+            textBoxCity.Location = new Point(172, 123);
+            textBoxCity.Name = "textBoxCity";
+            textBoxCity.Size = new Size(100, 23);
+            textBoxCity.TabIndex = 11;
+            // 
+            // textBoxStreet
+            // 
+            textBoxStreet.Location = new Point(172, 94);
+            textBoxStreet.Name = "textBoxStreet";
+            textBoxStreet.Size = new Size(100, 23);
+            textBoxStreet.TabIndex = 10;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(38, 160);
+            label7.Name = "label7";
+            label7.Size = new Size(0, 15);
+            label7.TabIndex = 9;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(38, 126);
+            label12.Name = "label12";
+            label12.Size = new Size(28, 15);
+            label12.TabIndex = 8;
+            label12.Text = "City";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(38, 97);
+            label13.Name = "label13";
+            label13.Size = new Size(37, 15);
+            label13.TabIndex = 7;
+            label13.Text = "Street";
+            // 
             // buttonAdd
             // 
             buttonAdd.Location = new Point(172, 228);
@@ -186,6 +267,7 @@
             buttonAdd.TabIndex = 6;
             buttonAdd.Text = "Add";
             buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.Click += buttonAdd_Click;
             // 
             // textBoxLastName
             // 
@@ -345,87 +427,6 @@
             buttonChange.TabIndex = 18;
             buttonChange.Text = "Change";
             buttonChange.UseVisualStyleBackColor = true;
-            // 
-            // textBoxCity
-            // 
-            textBoxCity.Location = new Point(172, 123);
-            textBoxCity.Name = "textBoxCity";
-            textBoxCity.Size = new Size(100, 23);
-            textBoxCity.TabIndex = 11;
-            // 
-            // textBoxStreet
-            // 
-            textBoxStreet.Location = new Point(172, 94);
-            textBoxStreet.Name = "textBoxStreet";
-            textBoxStreet.Size = new Size(100, 23);
-            textBoxStreet.TabIndex = 10;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(38, 160);
-            label7.Name = "label7";
-            label7.Size = new Size(0, 15);
-            label7.TabIndex = 9;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(38, 126);
-            label12.Name = "label12";
-            label12.Size = new Size(28, 15);
-            label12.TabIndex = 8;
-            label12.Text = "City";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(38, 97);
-            label13.Name = "label13";
-            label13.Size = new Size(37, 15);
-            label13.TabIndex = 7;
-            label13.Text = "Street";
-            // 
-            // textBoxPostCode
-            // 
-            textBoxPostCode.Location = new Point(172, 155);
-            textBoxPostCode.Name = "textBoxPostCode";
-            textBoxPostCode.Size = new Size(100, 23);
-            textBoxPostCode.TabIndex = 15;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(38, 221);
-            label14.Name = "label14";
-            label14.Size = new Size(0, 15);
-            label14.TabIndex = 14;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(38, 187);
-            label15.Name = "label15";
-            label15.Size = new Size(50, 15);
-            label15.TabIndex = 13;
-            label15.Text = "Country";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(38, 158);
-            label16.Name = "label16";
-            label16.Size = new Size(61, 15);
-            label16.TabIndex = 12;
-            label16.Text = "Post Code";
-            // 
-            // comboBoxCountry
-            // 
-            comboBoxCountry.FormattingEnabled = true;
-            comboBoxCountry.Location = new Point(172, 187);
-            comboBoxCountry.Name = "comboBoxCountry";
-            comboBoxCountry.Size = new Size(100, 23);
-            comboBoxCountry.TabIndex = 17;
             // 
             // groupBoxEco
             // 

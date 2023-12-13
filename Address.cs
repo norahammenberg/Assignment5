@@ -120,6 +120,7 @@ namespace Assignment5
 
         public string addressToString()
         {
+            validateCity(this.city);
             string address;
             address = street + city + postCode;
             return address;

@@ -5,6 +5,7 @@ namespace Assignment5
         public MainForm()
         {
             InitializeComponent();
+            Address address = new Address();
         }
     }
 }

@@ -8,16 +8,29 @@ namespace Assignment5
 {
     internal class ParticipantManager
     {
-        private List<Participant> participants; // dynamic list and grows while the user add a new participant. 
+        //instance variable
+        private List<Participant> participants; // dynamic list and grows when the user add a new participant and shrinks when the user delere an participant
 
         /// <summary>
         /// constructor that creates a new list of participantce.
         /// </summary>
         public ParticipantManager() 
         {
-            participants = new List<Participant>();
+            participants = new List<Participant>();// we create a a new list
         }
+        //method to handle a list
 
+        public Participant getParticipant (int index)
+        {
+            if (index < 0 || index >= participants.Count)
+            {
+                return null;
+            }
+            return participants[index];
+
+            // returning a copy instead??? 33.17
+            // calling the copy constroctor and creating a copyy if the object. 
+        }
         public int Count 
         { 
             get 

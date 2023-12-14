@@ -8,24 +8,28 @@ namespace Assignment5
 
         }
 
-        private Address address = new Address();
+        private Participant part = new Participant();
         private bool readStreet()
         {
             bool ok = true;
             string street = "Providance Ave";
-            address.Street = street;
+            part.Address.Street = street;
             string city = "Leeds";
-            address.City = city;
+            part.Address.City = city;
             string post = "LS6 2HN";
-            address.PostCode = post;
-
+            part.Address.PostCode = post;
+            string firstNAme = "Nora";
+            part.FirstName = firstNAme;
+            string lastNAme = "Hammenberg";
+            part.LastName = lastNAme;
             return ok;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             readStreet();
-            address.addressToString();
+            part.fullNameToString();
+            //part.Address.addressToString();
         }
     }
 }

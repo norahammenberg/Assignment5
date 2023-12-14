@@ -8,7 +8,7 @@ namespace Assignment5
 
         }
 
-        private Participant part = new Participant();
+        private ParticipantManager part = new ParticipantManager();
         private bool readStreet()
         {
             bool ok = true;
@@ -28,7 +28,7 @@ namespace Assignment5
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             readStreet();
-            part.fullNameToString();
+            part.fullParticapantToString();
             //part.Address.addressToString();
         }
     }

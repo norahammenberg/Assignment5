@@ -40,7 +40,7 @@
             buttonCreate = new Button();
             textBoxFeePerson = new TextBox();
             textBoxCostPerson = new TextBox();
-            textBoxMaxGuest = new TextBox();
+            textBoxEventTitle = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -85,7 +85,7 @@
             groupBoxNewParty.Controls.Add(buttonCreate);
             groupBoxNewParty.Controls.Add(textBoxFeePerson);
             groupBoxNewParty.Controls.Add(textBoxCostPerson);
-            groupBoxNewParty.Controls.Add(textBoxMaxGuest);
+            groupBoxNewParty.Controls.Add(textBoxEventTitle);
             groupBoxNewParty.Controls.Add(label3);
             groupBoxNewParty.Controls.Add(label2);
             groupBoxNewParty.Controls.Add(label1);
@@ -104,6 +104,7 @@
             buttonCreate.TabIndex = 6;
             buttonCreate.Text = "Create Event";
             buttonCreate.UseVisualStyleBackColor = true;
+            buttonCreate.Click += buttonCreate_Click;
             // 
             // textBoxFeePerson
             // 
@@ -119,12 +120,12 @@
             textBoxCostPerson.Size = new Size(100, 23);
             textBoxCostPerson.TabIndex = 4;
             // 
-            // textBoxMaxGuest
+            // textBoxEventTitle
             // 
-            textBoxMaxGuest.Location = new Point(172, 29);
-            textBoxMaxGuest.Name = "textBoxMaxGuest";
-            textBoxMaxGuest.Size = new Size(100, 23);
-            textBoxMaxGuest.TabIndex = 3;
+            textBoxEventTitle.Location = new Point(172, 29);
+            textBoxEventTitle.Name = "textBoxEventTitle";
+            textBoxEventTitle.Size = new Size(100, 23);
+            textBoxEventTitle.TabIndex = 3;
             // 
             // label3
             // 
@@ -149,9 +150,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(38, 32);
             label1.Name = "label1";
-            label1.Size = new Size(68, 15);
+            label1.Size = new Size(59, 15);
             label1.TabIndex = 0;
-            label1.Text = "Max Guests";
+            label1.Text = "Event title";
             // 
             // groupBoxInvite
             // 
@@ -185,6 +186,7 @@
             comboBoxCountry.Name = "comboBoxCountry";
             comboBoxCountry.Size = new Size(100, 23);
             comboBoxCountry.TabIndex = 17;
+
             // 
             // textBoxPostCode
             // 
@@ -317,6 +319,7 @@
             guestList.Name = "guestList";
             guestList.Size = new Size(596, 199);
             guestList.TabIndex = 8;
+            guestList.SelectedIndexChanged += guestList_SelectedIndexChanged;
             // 
             // labelName
             // 
@@ -408,6 +411,7 @@
             buttonDelete.TabIndex = 16;
             buttonDelete.Text = "Delete";
             buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // labelAddress
             // 
@@ -427,6 +431,7 @@
             buttonChange.TabIndex = 18;
             buttonChange.Text = "Change";
             buttonChange.UseVisualStyleBackColor = true;
+            buttonChange.Click += buttonChange_Click;
             // 
             // groupBoxEco
             // 
@@ -478,7 +483,7 @@
         private Label label1;
         private TextBox textBoxFeePerson;
         private TextBox textBoxCostPerson;
-        private TextBox textBoxMaxGuest;
+        private TextBox textBoxEventTitle;
         private Button buttonCreate;
         private GroupBox groupBoxInvite;
         private Button buttonAdd;

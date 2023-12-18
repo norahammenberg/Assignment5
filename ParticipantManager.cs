@@ -20,44 +20,96 @@ namespace Assignment5
         }
         //method to handle a list
 
+        /// <summary>
+        /// get participantes, instead of using a getter and seter properties we using this method. 
+        /// Checking if the list is less the 0 or higher or equl to the participantlist lenght. return a null Participant if it is. 
+        /// If not create an array with the length of index. 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public Participant getParticipant (int index)
         {
-            if (index < 0 || index >= participants.Count)
+            if (index < 0 || index >= participants.Count) 
             {
                 return null;
             }
-            return participants[index];
-
-            // returning a copy instead??? 33.17
-            // calling the copy constroctor and creating a copyy if the object. 
+            return participants[index];//returning the participant with corespondig index
         }
+
+        /// <summary>
+        /// Counted the number of participants regestereted in the element. 
+        /// </summary>
         public int Count 
         { 
-            get 
-            { 
-                return participants.Count;
-            } 
+            get { return participants.Count; } 
         }
         /// <summary>
-        /// 
+        /// adding a participant to the party by using the built un method add to the List. adding the created participant by the user. 
         /// </summary>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
-        /// <param name="address"></param>
+
         /// <returns></returns>
-        public bool addParticipant(string firstName, string lastName, Address address)
-        {
-            Participant newParticipant = new Participant(firstName, lastName, address);
-            participants.Add(newParticipant);
-            return true;
+        public bool addParticipant(Participant participant)
+        { 
+            participants.Add(participant); //to the participants list add the new participant. 
+            return true; 
         }
+    /// <summary>
+    /// the method that chaning an participant. if the participant is not null and theindex seleced by the user is more the 0 but less the participant count
+    /// allow the user to change that participant by using the same feails as when adding a new participant and replacing the selected place in the lsi twith this new changed participant. 
+    /// </summary>
+    /// <param name="participant"></param>
+    /// <param name="index"></param>
+    /// <returns></returns>
+        public bool changeParticipant( Participant participant, int index )
+        {
+            bool ok = true;
+            if (participant != null && index < 0 || index >= participants.Count)
+            {
+                participants[index] = participant;
+            }
+            else
+            {
+                ok = false;
+            }
+            return ok;
+        }
+
+        /// <summary>
+        /// deleting an participant, using the list åroperty removeAt, 
+        /// as the list is dynamic we don't need to move particiapants in the list. the list only excisit of the participants that is registratdes.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public bool deleteParticipant(int index)
+        {
+            if (index < 0 || index >= participants.Count)
+            {
+                return false;
+            }
+            else
+            { 
+                participants.RemoveAt(index);//removing participant on picked index.
+                return true;
+            }
+           
+        }
+        /// <summary>
+        /// getting all the infor from all added participants. creating an arrya ta add the participants to. 
+        /// looping through them to display them in the list box. 
+        /// </summary>
+        /// <returns></returns>
         public string[] getParticipantsInfo()
         {
-
+            string[] strInfoString = new string[participants.Count]; //new array of the participant that is registered. 
             
-            participants.fullParticapantToString();
-            int count = participants.Count;
-            return participants.ToArray();
+            int i = 0;
+            
+            //looping through the object in the array and making every object to a sting.
+            foreach ( Participant participantObj in participants )
+            {
+                strInfoString[i++] = participantObj.ToString();
+            }
+            return strInfoString;
         }
     }
 }

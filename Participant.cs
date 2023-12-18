@@ -9,6 +9,7 @@ namespace Assignment5
 {
     internal class Participant
     {
+        //instance variables
         private Address address;
         private string firstName;
         private string lastName;
@@ -22,31 +23,9 @@ namespace Assignment5
             firstName = string.Empty;
             lastName = string.Empty;
         }
-        /// <summary>
-        /// Constructor with parameters of firstName abd lastName and Address. 
-        /// </summary>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
-        /// <param name="address"></param>
-        public Participant(string firstName, string lastName, Address address) :this()
-        {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            if (address != null) // if address is not null then add the address
-            {
-                this.address = address;
-            }
-            else
-            {
-                address = new Address();// if address is null the create a new object of the address. 
-            }
-        }
-
-        ///copy constructor.
-
 
         /// <summary>
-        /// property    get and set address.
+        /// property get and set address.
         /// </summary>
         public Address Address
         {
@@ -54,62 +33,43 @@ namespace Assignment5
             set { address = value; }
         }
         /// <summary>
-        /// Property to get and set first name
+        /// Property to get and set firstname
         /// </summary>
         public string FirstName
         {
-            get
-            {
-                return firstName;
-            }
-            set
-            {
-                firstName = value;
-            }
+            get { return firstName; }
+            set { firstName = value; }
         }
 
         /// <summary>
-        /// Property to get and set first name
+        /// Property to get and set lastname
         /// </summary>
         public string LastName
         {
-            get
-            {
-                return lastName;
-            }
-            set
-            {
-                lastName = value;
-            }
+            get { return lastName; }
+            set { lastName = value; }
         }
         /// <summary>
-        /// Propity to get full name: 
+        /// validation of both names and the address. the address validation is calling the method in the address class and name validation happens here. this method is to be called in an other class. 
         /// </summary>
-        public string Fullname
+        /// <returns></returns>
+        public bool validateParticipant()
         {
-            get
-            {
-                return firstName + lastName;
-            }
+            bool addressok = address.validateCity();//is address okay and can it be used?
+            bool ok = (!string.IsNullOrEmpty(firstName)) && (!string.IsNullOrEmpty(lastName)); //is the name not empty or null
+            return addressok && ok;//returning if this valus are ok. 
         }
 
-        public bool validateName(string name)
+        /// <summary>
+        /// overriding method to creat the participant string that will be displayed in the listbox in th UI
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
         {
-            //validate all in pits. address could (but I do it in its on class) be calidated by calling its validation method. 
-            bool ok = !string.IsNullOrEmpty(name);
-            return ok;
-        }
+            string addressOfPerson = address.ToString();//saving address in string
+            string name = string.Format("{0, -20} {1, -20} {2}", lastName.ToUpper(),  firstName, addressOfPerson);// creating the string to be displayed
 
-        public string fullParticapantToString()
-        {
-            validateName(this.firstName);
-            validateName(this.lastName);
-            string addressOfPerson;
-            addressOfPerson = address.addressToString();
-            string name;
-            name = string.Format("{0, -20} {1, -20} {2}", lastName.ToUpper() + ", " + firstName + addressOfPerson);
-
-            return name;
+            return name;//returning the name
            
         }
     }

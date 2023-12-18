@@ -25,35 +25,10 @@ namespace Assignment5
             street = string.Empty;
             city = string.Empty;
             postCode = string.Empty;
-            //Countries country;
-        }
-        /// <summary>
-        /// constroctor
-        /// </summary>
-        /// <param name="street"></param>
-        /// <param name="city"></param>
-        /// <param name="postCode"></param>
-        public Address(string street, string city, string postCode): this ()
-        {
-            this.street = street;
-            this.city = city;
-            this.postCode = postCode;
         }
 
         /// <summary>
-        /// constroctor
-        /// </summary>
-        /// <param name="street"></param>
-        /// <param name="city"></param>
-        /// <param name="postCode"></param>
-        /// <param name="country"></param>
-        public Address(string street, string city, string postCode, Countries country) : this(street, city, postCode)//chain-calling the other constarctor.
-        {
-            this.country = country;
-        }
-
-        /// <summary>
-        /// Property get and set the street name
+        /// Properties get and set for street
         /// </summary>
         public string Street
         {
@@ -62,17 +37,15 @@ namespace Assignment5
         }
 
         /// <summary>
-        /// Poperty, get na dset the city name
+        /// Poperty, get and set the city name. 
+        /// checking if the city is not en empty string becaus city is a mandatory feild. 
         /// </summary>
         public string City
         {
-            get
-            {
-                return city;
-            }
-
+            get { return city; }
             set
             {
+                //ckecking the 
                 if (!string.IsNullOrEmpty(value))//checking that the city string is not empty.
                 {
                     city = value;
@@ -98,19 +71,25 @@ namespace Assignment5
             set { country = value; } 
         }
 
-        //Methods
-
-        public bool validateCity(string city)
+        /// <summary>
+        /// Validate the city. Making sure that the city is not empty or null when creating a new participant. 
+        /// </summary>
+        /// <returns></returns>
+        public bool validateCity()
         {
             bool ok = !string.IsNullOrEmpty(city);
             return ok;
         }
 
-        public string addressToString()
+        /// <summary>
+        /// creating a method that over riding To.string because we like to use the method to string in this way. 
+        /// the countery from the enum is convereted to strinf and the whole addesss is creating to one string to be displayed later. 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
         {
-            validateCity(this.city);
-            string address;
-            address = string.Format("{0, -25} {1, -8} {2, -10} {3}", street, city, postCode, country.ToString());//you can write a getCounteryString() method to rempve the _. using the keyword replace. 
+            string selectedContery = country.ToString();
+            string address = string.Format("{0, -25} {1, -8} {2, -10} {3}", street, city, postCode, selectedContery);
             return address;
         }
     }
